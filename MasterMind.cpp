@@ -3,7 +3,7 @@
 #include <ctime>
 using namespace std;
 
-//Kezdeti beállító függvény:
+//Kezdeti beï¿½llï¿½tï¿½ fï¿½ggvï¿½ny:
 char setup() {
 
 	int dice = rand() % 6 + 1;
@@ -30,7 +30,7 @@ char setup() {
 
 
 }
-//Válasz ellenõrzõ függvény:
+//Vï¿½lasz ellenï¿½rzï¿½ fï¿½ggvï¿½ny:
 bool check(char guess[], char secret[]) {
 
 	bool Checked[4];
@@ -38,7 +38,7 @@ bool check(char guess[], char secret[]) {
 	int RightColour = 0;
 	int RightPlace = 0;
 
-	//Jó szín és jó hely ellenõrzése.
+	//Jï¿½ szï¿½n ï¿½s jï¿½ hely ellenï¿½rzï¿½se.
 	for (int i = 0; i < 4; i++) {
 		if (secret[i] == guess[i]) {
 			RightPlace++;
@@ -46,7 +46,7 @@ bool check(char guess[], char secret[]) {
 		}
 	}
 
-	//Jó szín, de rossz hely ellebõrzése.
+	//Jï¿½ szï¿½n, de rossz hely ellenï¿½rzï¿½se.
 	for (int i = 0; i < 4; i++) {
 		if (Checked[i] == false) {
 			if (secret[i] == guess[0] || secret[i] == guess[1] || secret[i] == guess[2] || secret[i] == guess[3]) {
@@ -91,15 +91,15 @@ int main() {
 	cout << "If you can find out my secret in less than 10 rounds, you win!" << endl;
 	cout << "Let the game begin!" << endl;
 
-	//Kezdeti beállítás:
+	//Kezdeti beï¿½llï¿½tï¿½s:
 	for (int i = 0; i < 4; i++) {
 		secret[i] = setup();
 
-		//ellenõrzés magamnak
+		//ellenï¿½rzï¿½s magamnak
 		//cout << secret[i] << " ";
 	}
 
-	//Maga a játék.
+	//Maga a jï¿½tï¿½k.
 	while (GameEnd == false) {
 
 		cout << endl;
@@ -112,17 +112,17 @@ int main() {
 			cout << "You are in the LAST turn." << endl;
 		}
 
-		//Felhasználó tippel:
+		//Felhasznï¿½lï¿½ tippel:
 		for (int i = 0; i < 4; i++) {
 			cout << "Guess for the " << i + 1 << ". colour:";
 			cin >> guess[i];
-			//Valós válasz ellenõrzése:
+			//Valï¿½s vï¿½lasz ellenï¿½rzï¿½se:
 			if (guess[i] != 'R' && guess[i] != 'O' && guess[i] != 'Y' && guess[i] != 'G' && guess[i] != 'B' && guess[i] != 'V') {
 				cout << "Invalid guess. Try again!";
 				i--;
 			}
 		}
-		//Ellenõrzés
+		//Ellenï¿½rzï¿½s
 		GameEnd = check(guess, secret);
 
 		TurnCount++;
